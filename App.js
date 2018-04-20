@@ -1,14 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Register from './src/components/Register';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+import { reducer as formReducer } from 'redux-form';
+
+
+const reducers = combineReducers({
+  form: formReducer
+});
+
+const store = createStore(reducers /*middleware*/);
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Text style={styles.header}>SimpleWeb Techincal Challenge</Text>
+          <Register />
+        </View>
+      </Provider>
     );
   }
 }
@@ -19,5 +33,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  header: {
+    fontSize: 18,
   },
 });
