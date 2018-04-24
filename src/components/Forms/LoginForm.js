@@ -4,12 +4,11 @@ import { reduxForm, Field, formValueSelector } from 'redux-form';
 import Input from './Input';
 import submit from './submit';
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
+const renderField = ({ input, ...inputProps, meta: { touched, error } }) => (
 	<View>
 		<TextInput
 		{...input}
-		placeholder={label}
-		type={type}
+		{...inputProps}
 		/>
 		{ touched && (error && <Text>{error}</Text>) }
 	</View>
@@ -33,16 +32,16 @@ class LoginForm extends Component {
 		
 			<Field 
 			name='email' 
-			type='email'
 			component={renderField} 
-			label='Email'
+			placeholder='Email'
+			autoCapitalize="none"
 			/>
 			<Field 
-			label='Password' 
-			secureTextEntry={true} 
+			placeholder='Password' 
 			component={renderField} 
 			name='password' 
-			type='password' 
+			secureTextEntry={true}
+			autoCapitalize="none" 
 			/>
 			
 			{error && <Text>{error}</Text>}

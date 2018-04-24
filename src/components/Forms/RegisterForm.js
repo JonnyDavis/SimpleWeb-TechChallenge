@@ -19,12 +19,12 @@ const validate = values => {
     return errors
 }
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
+const renderField = ({ input, ...inputProps, meta: { touched, error } }) => (
 	<View>
 		<TextInput
 		style={styles.input}
 		{...input}
-		type={type}
+		{...inputProps}
 		/>
 		{touched && (error && <Text>{error}</Text>)}
 	</View>
@@ -47,15 +47,32 @@ class RegisterForm extends Component {
 		const { handleSubmit, submitting, reset, pristine  } = this.props;
 		return (
 			<View>
-			<Field placeholder='name' component={renderField} name={'name'} type="text" />
-			<Field placeholder='Email' component={renderField} name={'email'} type="email" />
-			<Field placeholder='Password' secureTextEntry={true} component={Input} name={'password'} type="password" />
+			
+			<Field 
+			placeholder='name' 
+			component={renderField} 
+			name='name' 		
+			/>
+			<Field 
+			placeholder='Email' 
+			component={renderField} 
+			name='email' 
+			/>
+			<Field 
+			placeholder='Password' 
+			secureTextEntry={true} 
+			component={Input} 
+			name={'password'} 
+			/>
+			
 			<TouchableOpacity onPress={this.handleSubmit} disabed={submitting} >
 				<Text> Register </Text>
 			</TouchableOpacity>
+			
 			<TouchableOpacity onPress={ reset } disabed={pristine || submitting} >
 				<Text> Clear Values </Text>
 			</TouchableOpacity>
+			
 			</View>
 
 

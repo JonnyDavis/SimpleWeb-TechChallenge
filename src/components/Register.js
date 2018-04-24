@@ -13,3 +13,16 @@ const Register = () => {
 }
 
 export default Register;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    marginTop: 20,
+  },
+  header: {
+    fontSize: 18,
+  },
+});
