@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import RegisterForm from './Forms/RegisterForm';
 
 
-
 const Register = () => {
 	return (
 		<View>
