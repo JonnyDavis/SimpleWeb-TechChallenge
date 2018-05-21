@@ -1,7 +1,6 @@
 import * as authReducer from './authReducer';
 import AuthApi from './authAPI';
 import { AsyncStorage } from 'react-native';
-import { loginUser, loginUser2 } from '../data/api';
 import App from '../../App';
 
 // function for saving data to a device (will store the token)
@@ -30,7 +29,6 @@ export const onLogin = (email, password) => {
 				);
 				_saveItem('token', response.token)
 					.then(resp => {
-						App.startAppLoggedIn();
 						console.log('loggedIn');
 					})
 				
