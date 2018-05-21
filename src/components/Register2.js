@@ -2,80 +2,7 @@ import React, { Component } from 'react';
 import { TextInput, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { reduxForm, Field, formValueSelector } from 'redux-form';
 import Input from './Forms/Input';
-import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 
-
-const renderField = ({ input: { onChange, ...restInput }}) => {
-	return (
-		<FormInput
-			onChangeText={onChange}
-			{...restInput}
-		/>
-	);
-};
-
-const renderPassword = ({ input: { onChange, ...restInput }}) => {
-	return (
-		<FormInput
-			onChangeText={onChange}
-			{...restInput}
-			secureTextEntry={true}
-		/>
-	);
-};
-
-class Register extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-
-		const {handleSubmit, error } = this.props;
-
-		const submitForm = e => {
-			this.props.register(e.username, e.email, e.password);
-		}
-
-
-		return (
-
-			<View>
-
-				<Text> Register </Text>
-
-				<View>
-
-					<FormLabel>Username</FormLabel>
-					<Field name='username' component={renderField} />
-
-					<FormLabel>Email</FormLabel>
-					<Field name='email' component={renderField} />
-					
-					<FormLabel>Password</FormLabel>
-					<Field name='password' component={renderPassword} />
-
-					{error && <Text>{error}</Text>}
-
-					<Button
-						onPress={handleSubmit(submitForm)}
-						title={'Register'}
-					/>					
-
-				</View>
-
-
-
-
-			</View>
-
-		)
-	}
-}
-
-export default reduxForm({ form: 'registerform' })(Register);
-
-/*
 
 const validate = values => {
 	const errors = {}
@@ -164,8 +91,20 @@ export default reduxForm({
 })(RegisterForm);
 
 
-*/
 
-
-
-
+const styles = StyleSheet.create({
+  	container: {
+	    flex: 1,
+	    backgroundColor: '#fff',
+	    alignItems: 'center',
+	    justifyContent: 'flex-start',
+	    marginTop: 20,
+  },
+  	header: {
+    	fontSize: 18,
+  },
+	input: {
+		fontSize: 14,
+		width: 200,
+	}
+});

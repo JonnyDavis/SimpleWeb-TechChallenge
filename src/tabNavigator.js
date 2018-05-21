@@ -3,8 +3,8 @@ import { Constants } from 'expo';
 import { Platform } from 'react-native';
 import { Text, View } from 'react-native';
 import { TabNavigator } from 'react-navigation';
-import Register from './components/Register';
-import Login from './components/Login';
+import Register from './screens/RegisterScreen';
+import Login from './screens/LoginScreen.js';
 
 const extraStyles = Platform.select({
 	android: {
