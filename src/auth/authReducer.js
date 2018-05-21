@@ -8,7 +8,6 @@ export const setLoginSuccess = (token) => {
 	return {
 		type: 'SET_LOGIN_SUCCESS',
 		token
-		//refreshToken
 	};
 };
 export const setLoginError = loginError => {
@@ -35,7 +34,6 @@ let initialState = {
 	loggedIn: false,
 	loginError: false,
 	token: null,
-	// refreshToken: null
 };
 
 export default function(state = initialState, action) {
@@ -52,7 +50,6 @@ export default function(state = initialState, action) {
 			loggedIn: true,
 			loginError: false,
 			token: action.token,
-			// refreshToken: action.refreshToken
 		};
 	case 'SET_LOGIN_ERROR':
 		return {

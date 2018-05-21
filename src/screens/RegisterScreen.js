@@ -82,7 +82,7 @@ const renderPassword = ({ input: { onChange, ...restInput }}) => {
 
 const mapDispatchToProps = (dispatch, props) => {
     return {
-        // onSubmit is a function which dispatches an action "add"
+        
         register: (username, email, password) => dispatch(onRegister(username, email, password)),
 
     };

@@ -17,13 +17,11 @@ class LoginScreen extends Component {
 	constructor(props) {
 		super(props);
 
-		//this.submitLogout = this.submitLogout.bind(this);
+		
 	}		
 
 
-	// submitLogout() {
-	// 	this.props.logout(this.props.token)
-	// }
+
 
 	render() {
 		const { handleSubmit, error, pristine, reset, submitting, auth } = this.props;
